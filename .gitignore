@@ -1,0 +1,11 @@
+Saved/
+Intermediate/
+Build/
+Binaries/
+ipch/
+.vs
+*.suo
+StreamArcade.VC.VC.opendb
+StreamArcade.VC.db
+StreamArcade.sln
+desktop.ini
