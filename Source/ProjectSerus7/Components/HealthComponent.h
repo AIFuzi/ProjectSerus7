@@ -20,10 +20,29 @@ protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
 
+	//void CalculateStamina(bool Use);
+	//void UseStamina(bool Use);
+
 public:	
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
-		
-	
+	//UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Stamina")
+	//	float Stamina;
+
+	//UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Stamina")
+	//	float StaminaSpeed;
+
+	//UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Stamina")
+	//	bool StaminaUse;
+
+	//UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Stamina")
+	//	bool StaminaEnded;
+
+	//UFUNCTION(BlueprintCallable, Category = "Sprint")
+	//	void CalculateStamina();
+
+	//UFUNCTION(BlueprintCallable, Category = "Sprint")
+	//	void UseStamina();
+
 };

@@ -6,6 +6,7 @@
 #include "GameFramework/Character.h"
 #include "Components/SkeletalMeshComponent.h"
 #include "Camera/CameraComponent.h" 
+#include "Components/HealthComponent.h"
 #include "MainCharacter.generated.h"
 
 UCLASS()
@@ -29,7 +30,7 @@ protected:
 	
 	void StartCrouch();
 	void StopCrouch();
-	bool IsCrouch = false;
+	bool IsCrouch = true;
 
 public:	
 	// Called every frame
@@ -52,4 +53,11 @@ public:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Character")
 		FName WeaponSocket = TEXT("GripPoint");
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Input")
+		bool IsSprint;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Character")
+		UHealthComponent* HealthComponent;
+
 };

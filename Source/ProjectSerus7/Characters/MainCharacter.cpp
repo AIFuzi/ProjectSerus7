@@ -4,7 +4,7 @@
 #include "GameFramework/MovementComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/Character.h"
-#include "Components/HealthComponent.h"
+
 
 AMainCharacter::AMainCharacter()
 {
@@ -16,6 +16,11 @@ AMainCharacter::AMainCharacter()
 
 	WeaponMesh = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("Weapon"));
 	WeaponMesh->AttachTo(PlayerMesh, WeaponSocket, EAttachLocation::SnapToTarget, true);
+
+	HealthComponent = CreateDefaultSubobject<UHealthComponent>(TEXT("HealthComponent"));
+
+
+	
 }
 
 void AMainCharacter::BeginPlay()
@@ -27,6 +32,7 @@ void AMainCharacter::BeginPlay()
 void AMainCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+
 
 }
 
@@ -44,6 +50,7 @@ void AMainCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompo
 	PlayerInputComponent->BindAxis("MoveRight", this, &AMainCharacter::MoveRight);
 	//Jump
 	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
+	PlayerInputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
 	//Sprint
 	PlayerInputComponent->BindAction("Sprint", IE_Pressed, this, &AMainCharacter::StartSprint);
 	PlayerInputComponent->BindAction("Sprint", IE_Released, this, &AMainCharacter::StopSprint);
@@ -67,24 +74,29 @@ void AMainCharacter::MoveRight(float Val)
 void AMainCharacter::StartSprint()
 {
 	GetCharacterMovement()->MaxWalkSpeed = 1200.f;
+	IsSprint = true;
 }
 
 void AMainCharacter::StopSprint()
 {
 	GetCharacterMovement()->MaxWalkSpeed = 400.f;
+	IsSprint = false;
 }
 
 void AMainCharacter::StartCrouch()
 {
 	//ACharacter::Crouch();
-	if (IsCrouch == true)
+	if (IsSprint == false)
 	{
-		ACharacter::Crouch();
-		IsCrouch = false;
-	}
-	else
-	{
-		ACharacter::UnCrouch();
-		IsCrouch = true;
+		if (IsCrouch == true)
+		{
+			ACharacter::Crouch();
+			IsCrouch = false;
+		}
+		else
+		{
+			ACharacter::UnCrouch();
+			IsCrouch = true;
+		}
 	}
 }

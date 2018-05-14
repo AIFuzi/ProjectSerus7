@@ -1,10 +1,11 @@
 #include "HealthComponent.h"
-
+#include "GameFramework/Actor.h"
 
 UHealthComponent::UHealthComponent()
+	//:
+	//Stamina(100),
+	//StaminaSpeed(-2)
 {
-	PrimaryComponentTick.bCanEverTick = true;
-
 }
 
 
@@ -23,3 +24,15 @@ void UHealthComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActo
 
 }
 
+
+//void UHealthComponent::CalculateStamina()
+//{
+//	if ((StaminaUse == true) && (Stamina > 0.f))
+//	{
+//		Stamina = (Stamina *= StaminaSpeed);
+//	}
+//	else 
+//	{
+//
+//	}
+//}
