@@ -14,9 +14,6 @@ AMainCharacter::AMainCharacter()
 	PlayerMesh = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("ArmMesh"));
 	PlayerMesh->AttachTo(Camera);
 
-	WeaponMesh = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("Weapon"));
-	WeaponMesh->AttachTo(PlayerMesh, WeaponSocket, EAttachLocation::SnapToTarget, true);
-
 	HealthComponent = CreateDefaultSubobject<UHealthComponent>(TEXT("HealthComponent"));
 
 

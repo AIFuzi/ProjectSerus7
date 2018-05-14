@@ -47,9 +47,6 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Character")
 		UCameraComponent* Camera;
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Character")
-		FName WeaponSocket = TEXT("GripPoint");
-
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Input")
 		bool IsSprint;
 
