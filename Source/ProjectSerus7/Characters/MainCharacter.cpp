@@ -33,7 +33,6 @@ void AMainCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-
 }
 
 void AMainCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
@@ -81,11 +80,11 @@ void AMainCharacter::StopSprint()
 {
 	GetCharacterMovement()->MaxWalkSpeed = 400.f;
 	IsSprint = false;
+
 }
 
 void AMainCharacter::StartCrouch()
 {
-	//ACharacter::Crouch();
 	if (IsSprint == false)
 	{
 		if (IsCrouch == true)

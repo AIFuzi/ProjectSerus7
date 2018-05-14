@@ -23,13 +23,9 @@ protected:
 	virtual void BeginPlay() override;
 
 	void MoveForward(float Val);
-	void MoveRight(float Val);
-
-	void StartSprint();
-	void StopSprint();
+	void MoveRight(float Val);	
 	
 	void StartCrouch();
-	void StopCrouch();
 	bool IsCrouch = true;
 
 public:	
@@ -59,5 +55,11 @@ public:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Character")
 		UHealthComponent* HealthComponent;
+
+	UFUNCTION(BlueprintCallable, Category = "Stamina")
+		void StartSprint();
+
+	UFUNCTION(BlueprintCallable, Category = "Stamina")
+		void StopSprint();
 
 };
